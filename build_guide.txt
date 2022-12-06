@@ -66,3 +66,16 @@ rails g annotate:install
 
 run
 rails annotate_models
+
+4. Make landing page all posts under routes
+
+root 'listings#index'
+
+5. Added conditional navigation to application.html.erb
+     <!-- conditional for user sessions/rendering links -->
+      <% if current_user != nil %>
+      <%= link_to "Your posts", posts_path %>
+      |
+      <%= link_to "Edit profile", edit_user_registration_path %>
+      |
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

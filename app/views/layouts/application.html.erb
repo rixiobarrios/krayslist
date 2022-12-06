@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>VanillaRails</title>
+    <title>Krayslist</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,24 @@
   </head>
 
   <body>
+
+      <% if current_user != nil %>
+
+      <%= link_to "Your posts", posts_path %>
+      |
+      <%= link_to "Edit profile", edit_user_registration_path %>
+      |
+      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+     
+      <% else %>
+
+      <%= link_to "Sign in", user_session_path %>
+      |
+      <%= link_to "Sign up", new_user_registration_path %>
+      
+      <% end %>
+
     <%= yield %>
+
   </body>
 </html>
