@@ -1,0 +1,24 @@
+# == Schema Information
+#
+# Table name: messages
+#
+#  id           :bigint           not null, primary key
+#  body         :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  listing_id   :integer
+#  recipient_id :integer
+#  sender_id    :integer
+#
+
+one:
+  listing_id: 1
+  sender_id: 1
+  recipient_id: 1
+  body: MyString
+
+two:
+  listing_id: 1
+  sender_id: 1
+  recipient_id: 1
+  body: MyString
