@@ -10,6 +10,6 @@
 #
 class Category < ApplicationRecord
   
-  # has_many(:listings, { :class_name => "Listing", :foreign_key => "category_id", :dependent => :destroy })
-  # belongs_to(:location, { :required => true, :class_name => "Location", :foreign_key => "location_id" })
+  has_many(:listings, :class_name => "Listing", :foreign_key => "category_id", :dependent => :destroy)
+  belongs_to(:location, :required => true, :class_name => "Location", :foreign_key => "location_id")
 end

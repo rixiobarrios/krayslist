@@ -6,10 +6,10 @@ rails generate scaffold listing seller_id:integer buyer_id:integer title:string 
 
 Direct Associations:
 
-has_many(:messages, { :class_name => "Message", :foreign_key => "listing_id", :dependent => :destroy })
-belongs_to(:seller, { :required => true, :class_name => "User", :foreign_key => "seller_id" })
-belongs_to(:buyer, { :required => true, :class_name => "User", :foreign_key => "buyer_id" })
-belongs_to(:category, { :required => true, :class_name => "Category", :foreign_key => "category_id" })
+has_many(:messages, :class_name => "Message", :foreign_key => "listing_id", :dependent => :destroy)
+belongs_to(:seller, :required => true, :class_name => "User", :foreign_key => "seller_id")
+belongs_to(:buyer, :required => true, :class_name => "User", :foreign_key => "buyer_id")
+belongs_to(:category, :required => true, :class_name => "Category", :foreign_key => "category_id")
 
 b. Categories
 
@@ -17,8 +17,8 @@ rails generate scaffold category title:string location_id:integer
 
 Direct Associations: 
 
-has_many(:listings, { :class_name => "Listing", :foreign_key => "category_id", :dependent => :destroy })
-belongs_to(:location, { :required => true, :class_name => "Location", :foreign_key => "location_id" })
+has_many(:listings, :class_name => "Listing", :foreign_key => "category_id", :dependent => :destroy)
+belongs_to(:location, :required => true, :class_name => "Location", :foreign_key => "location_id")
 
 c. Locations
 
@@ -26,7 +26,7 @@ rails generate scaffold location city:string
 
 Direct Associations: 
 
-has_many(:categories, { :class_name => "Category", :foreign_key => "location_id", :dependent => :destroy })
+has_many(:categories, :class_name => "Category", :foreign_key => "location_id", :dependent => :destroy)
 
 d. Messages
 
@@ -34,9 +34,9 @@ rails generate scaffold message listing_id:integer sender_id:integer recipient_i
 
 Direct Associations: 
 
-belongs_to(:listing, { :required => true, :class_name => "Listing", :foreign_key => "listing_id" })
-belongs_to(:sender, { :required => true, :class_name => "User", :foreign_key => "sender_id" })
-belongs_to(:recipient, { :required => true, :class_name => "User", :foreign_key => "recipient_id" })
+belongs_to(:listing, :required => true, :class_name => "Listing", :foreign_key => "listing_id")
+belongs_to(:sender, :required => true, :class_name => "User", :foreign_key => "sender_id")
+belongs_to(:recipient, :required => true, :class_name => "User", :foreign_key => "recipient_id")
 
 Make any chamges to migrate files before running db:migrate
 
