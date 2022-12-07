@@ -14,11 +14,15 @@
 
       <% if current_user != nil %>
 
+      <%= link_to "Categories", categories_path %>
+      |
       <%= link_to "Your listing", listings_path %>
       |
       <%= link_to "Edit profile", edit_user_registration_path %>
       |
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      |
+      <%= current_user.username %>
      
       <% else %>
 

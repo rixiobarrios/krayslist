@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'listings#index'
+  root 'categories#index'
 
   devise_for :users
   resources :messages

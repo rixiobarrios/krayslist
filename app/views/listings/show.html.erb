@@ -5,14 +5,20 @@
   <%= @listing.seller_id %>
 </p>
 
-<p>
+<!--<p>
   <strong>Buyer:</strong>
-  <%= @listing.buyer_id %>
-</p>
+  <%#= @listing.buyer_id %>
+</p>-->
 
 <p>
   <strong>Title:</strong>
   <%= @listing.title %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%#= @listing.image %>
+  <%= image_tag @listing.image %>
 </p>
 
 <p>

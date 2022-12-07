@@ -13,13 +13,14 @@
 
   <div class="field">
     <%= form.label :seller_id %>
-    <%= form.number_field :seller_id %>
+    <%#= form.number_field :seller_id %>
+    <%= form.collection_select :seller_id, User.order(:username), :id, :username, include_blank: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :buyer_id %>
-    <%= form.number_field :buyer_id %>
-  </div>
+  <!--<div class="field">
+    <%#= form.label :buyer_id %>
+    <%#= form.number_field :buyer_id %>
+  </div>-->
 
   <div class="field">
     <%= form.label :title %>
@@ -33,12 +34,13 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_area :image %>
+    <%= form.text_field :image %>
   </div>
 
   <div class="field">
     <%= form.label :category_id %>
-    <%= form.number_field :category_id %>
+    <%#= form.number_field :category_id %>
+    <%= form.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
   </div>
 
   <div class="actions">

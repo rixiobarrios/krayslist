@@ -8,7 +8,7 @@ Direct Associations:
 
 has_many(:messages, :class_name => "Message", :foreign_key => "listing_id", :dependent => :destroy)
 belongs_to(:seller, :required => true, :class_name => "User", :foreign_key => "seller_id")
-belongs_to(:buyer, :required => true, :class_name => "User", :foreign_key => "buyer_id")
+belongs_to(:buyer, :required => false, :class_name => "User", :foreign_key => "buyer_id")
 belongs_to(:category, :required => true, :class_name => "Category", :foreign_key => "category_id")
 
 b. Categories
@@ -60,6 +60,17 @@ rails db:migrate
 show all views for devise 
 rails g devise:views
 
+allow additional parameters through security
+class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, :keys => [:username, :avatar_url])
+    
+    devise_parameter_sanitizer.permit(:account_update, :keys => [:username, :avatar_url])
+  end
+end
+
 3. Install annotate to visualize tables/models
 
 rails g annotate:install
@@ -69,13 +80,31 @@ rails annotate_models
 
 4. Make landing page all posts under routes
 
-root 'listings#index'
+root 'categories#index'
 
 5. Added conditional navigation to application.html.erb
      <!-- conditional for user sessions/rendering links -->
       <% if current_user != nil %>
-      <%= link_to "Your posts", posts_path %>
+      <%= link_to "Your listings", listings_path %>
       |
       <%= link_to "Edit profile", edit_user_registration_path %>
       |
       <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      |
+      <%= current_user.username %>
+
+6. Added fields for user forms edit and new
+  <div class="field">
+    <%= f.label :avatar %><br />
+    <%= f.text_field :avatar, autofocus: true, autocomplete: "avatar" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :username %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+  </div>
+
+7. Add humanize helper to created_at
+<td><%= time_ago_in_words(listings.created_at) %> ago</td>
+
+8. 
