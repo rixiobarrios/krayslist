@@ -2,7 +2,7 @@
 
 a. Listings
 
-rails generate scaffold listing seller_id:integer buyer_id:integer title:string details:text category_id:integer
+rails generate scaffold listing seller_id:integer buyer_id:integer title:string details:text image:string category_id:integer
 
 Direct Associations:
 
