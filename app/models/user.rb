@@ -19,8 +19,16 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+
+  mount_uploader :avatar, AvatarUploader
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many(:listing_seller, :class_name => "Listing", :foreign_key => "seller_id", :dependent => :destroy) 
+  has_many(:listing_buyer, :class_name => "Listing", :foreign_key => "buyer_id", :dependent => :destroy)
+  has_many(:message_sender, :class_name => "Message", :foreign_key => "sender_id", :dependent => :destroy)
+  has_many(:message_recipient, :class_name => "Message", :foreign_key => "recipient_id", :dependent => :destroy)      
 end

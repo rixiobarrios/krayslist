@@ -18,7 +18,8 @@
 <p>
   <strong>Image:</strong>
   <%#= @listing.image %>
-  <%= image_tag @listing.image %>
+  <%#= image_tag @listing.image %>
+  <%= image_tag @listing.image.url %>
 </p>
 
 <p>

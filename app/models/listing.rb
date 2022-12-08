@@ -13,6 +13,8 @@
 #  seller_id   :integer
 #
 class Listing < ApplicationRecord
+  
+  mount_uploader :image, ImageUploader
 
   has_many(:messages, :class_name => "Message", :foreign_key => "listing_id", :dependent => :destroy)
   belongs_to(:seller, :required => true, :class_name => "User", :foreign_key => "seller_id")
