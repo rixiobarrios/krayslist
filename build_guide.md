@@ -1,3 +1,8 @@
+![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
+![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
+![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
+![show](https://user-images.githubusercontent.com/55994508/206535581-c15a86a5-e4d1-4013-b8a2-8a815db3a589.png)
+
 1. Generate scaffold resources:
 
 a. Listings
@@ -47,10 +52,9 @@ rails db:migrate
 
 a. Add ```gem 'devise'``` to your Gemfile
 
-b. bundle install
+b. Run ```bundle install```
 
-c. stop and restart your server 
-   ```bin/server```
+c. stop and restart your server by pressing ```ctrl + c``` and Run ```bin/server```
 
 d. Run ```rails g devise:install```
 
