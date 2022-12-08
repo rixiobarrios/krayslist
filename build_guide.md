@@ -182,3 +182,20 @@ g.4. Add file_field to image field
 ```
 <%= form.file_field :image %>
 ```
+
+7. Add notice and alert to application.html.erb, delete notices on all files
+    ```
+    <!-- conditional to avoid duplicate alerts or notices -->
+    <% if notice.present? %>
+    <div style="color: green;">
+      <%= notice %>
+    </div>
+
+    <% end %>
+    <% if alert.present? %>
+    <div style="color: red;">
+      <%= alert %>
+    </div>
+
+    <% end %>
+    ```
