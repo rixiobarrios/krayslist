@@ -4,7 +4,7 @@
 
 # Welcome to my final project: Krayslist by Rixio Barrios
 
-![dpi](https://user-images.githubusercontent.com/55994508/206869103-d10c2b8c-29af-4e35-aee7-f5391b5d07db.png)![uis](https://user-images.githubusercontent.com/55994508/206869265-8f9f6bb6-2562-403b-ac4a-eecb0eb60091.png)
+![dpi](https://user-images.githubusercontent.com/55994508/206869103-d10c2b8c-29af-4e35-aee7-f5391b5d07db.png)![uis](https://user-images.githubusercontent.com/55994508/206870942-07dbdc5f-0a94-47f8-bff4-3e0e9d7491de.png)
 
 This project is an final assignment for the Software Engineering Apprenticeship provided by the Discovery Partners Institute and the University of Illinois System.
 
@@ -22,6 +22,10 @@ In order to post an add you would first need to create a new user account.
 
 ## Wireframes
 
+![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
+![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
+![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
+![show](https://user-images.githubusercontent.com/55994508/206535581-c15a86a5-e4d1-4013-b8a2-8a815db3a589.png)
 
 ## How to run this application
 
@@ -73,12 +77,6 @@ bundle e rails s
 ```
 
 **Note: This process may need additional steps depending on your system**
-
-
-![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
-![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
-![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
-![show](https://user-images.githubusercontent.com/55994508/206535581-c15a86a5-e4d1-4013-b8a2-8a815db3a589.png)
 
 ## Generate scaffold resources:
 
