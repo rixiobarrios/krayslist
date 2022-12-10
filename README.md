@@ -2,9 +2,82 @@
 ![krayslist5](https://user-images.githubusercontent.com/55994508/206867976-7633ae54-6d3c-4186-a314-4ff624fcf459.png)
 
 
-![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
+# Welcome to my final project: Krayslist by Rixio Barrios
+
+![dpi](https://user-images.githubusercontent.com/55994508/206869103-d10c2b8c-29af-4e35-aee7-f5391b5d07db.png)![uis](https://user-images.githubusercontent.com/55994508/206869265-8f9f6bb6-2562-403b-ac4a-eecb0eb60091.png)
+
+This project is an final assignment for the Software Engineering Apprenticeship provided by the Discovery Partners Institute and the University of Illinois System.
+
+## Concept
+
+Krayslist is my attempt to make the popular classifieds advertisement website **Craigslist** a bit less boring.
+
+## Overview
+
+This application starts at a locations menu to then move you to a categories page to finally put you in an index of listings.
+You may pick your desire listing and read more about it.
+In order to post an add you would first need to create a new user account.
+
+**Note: You are able to upload images for your listing!**
+
+## Wireframes
+
+
+## How to run this application
+
+* Clone this repo
+```
+git clone https://github.com/rixiobarrios/krayslist.git
+```
+* Find Ruby version under Gemfile
+* Alternatively use Ruby version management tool **Rbenv**
+* Install [Homebrew](https://brew.sh) to install **Rbenv**
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+* Install Rbenv
+```
+brew install rbenv
+```
+* install Ruby
+```
+# List Ruby versions available
+rbenv install --list
+# Install Ruby 2.5.3
+rbenv install 2.5.3
+# Set a default version.
+rbenv global 2.5.3
+```
+* Install Bundler version
+```
+# Make sure you are using the desired Ruby version to install.
+ruby --version
+# To see if you already have Bundler installed
+bundler --version
+# Or
+bundle --version
+# This will install the bundler gem in Ruby 2.5.3
+gem install bundler -v 2.0.1
+```
+* Install the required gems
+```
+bundle install
+```
+* Setup database
+```
+bundle e rails db:setup
+```
+* Run the rails server
+```
+bundle e rails s
+```
+
+**Note: This process may need additional steps depending on your system**
+
+
 ![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
 ![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
+![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
 ![show](https://user-images.githubusercontent.com/55994508/206535581-c15a86a5-e4d1-4013-b8a2-8a815db3a589.png)
 
 ## Generate scaffold resources:
