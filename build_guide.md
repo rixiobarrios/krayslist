@@ -1,3 +1,6 @@
+![krayslist5](https://user-images.githubusercontent.com/55994508/206867976-7633ae54-6d3c-4186-a314-4ff624fcf459.png)
+
+
 ![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
 ![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
 ![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
@@ -184,7 +187,7 @@ g.4. Add file_field to image field
 ```
 
 7. Add notice and alert to application.html.erb, delete notices on all files
-    ```
+```
     <!-- conditional to avoid duplicate alerts or notices -->
     <% if notice.present? %>
     <div style="color: green;">
@@ -198,4 +201,57 @@ g.4. Add file_field to image field
     </div>
 
     <% end %>
-    ```
+```
+8. Add better redirects
+
+a. create, update, destroy redirect_to("/listings")
+```
+format.html { redirect_to listings_path, notice: "Listing was successfully created." }
+format.html { redirect_to listings_path, notice: "Listing was successfully updated." }
+format.html { redirect_to listings_path, notice: "Listing was successfully destroyed." }    
+```
+
+b. create, update, destroy redirect_to("/categories")
+```
+format.html { redirect_to categories_path, notice: "Category was successfully created." }
+format.html { redirect_to categories_path, notice: "Category was successfully updated." }
+format.html { redirect_to categories_path, notice: "Category was successfully destroyed." }    
+```
+
+c. create, update, destroy redirect_to("/locations")
+```
+format.html { redirect_to locations_path, notice: "Location was successfully created." }
+format.html { redirect_to locations_path, notice: "Location was successfully updated." }
+format.html { redirect_to locations_path, notice: "Location was successfully destroyed." }    
+```
+
+9. Add user views
+
+a. Add route delow ```devise_for :users```
+```
+resources :users, only: [:index, :show, :new, :edit, :update]
+```
+b. Create a User controller ```/controllers/users_controller.rb``` and add the following code
+```
+class UsersController < ApplicationController
+
+  def index
+    @users = User.all.order('username ASC')
+  end
+
+  def show
+    @user = User.find_by!(id: params.fetch(:id))
+  end
+end
+```
+c. Create a rendering file ```/views/users/index.html.erb``` and add the following code
+```
+<ul>
+  <% @users.each do |user| %>
+    <li><%= user.username %></li>
+  <% end %>
+</ul>
+```
+
+
+10. Add dynamic routes

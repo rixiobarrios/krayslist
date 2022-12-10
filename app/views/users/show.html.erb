@@ -1,0 +1,32 @@
+<p>
+  <strong>User ID:</strong>
+  <%= @user.id %>
+</p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Avatar:</strong>
+  <%= image_tag @user.avatar.url %>
+</p>
+
+<p>
+  <strong>Created:</strong>
+  <%= time_ago_in_words(@user.created_at) %> 
+</p>
+
+<p>
+  <strong>Updated:</strong>
+  <%= time_ago_in_words(@user.updated_at) %> 
+</p>
+
+<%= link_to 'Edit', edit_user_registration_path(@user) %> |
+<%= link_to 'Back', users_path %>

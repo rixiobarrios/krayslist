@@ -1,0 +1,36 @@
+<h2>New user</h2>
+
+<% @user.errors.full_messages.each do |message| %>
+  <p style="color: red;"><%= message %></p>
+<% end %>
+
+
+<%= form_with(url: new_user_path, enctype: "multipart/form-data", method: :post) do %>
+
+  <div class="field">
+    <%= label_tag :avatar %>
+    <%= file_field "user[avatar]", @user.avatar %>
+  </div>
+  
+   <div class="field">
+    <%= label_tag :username %>
+    <%= text_field_tag "user[username]", @user.username %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :email %>
+    <%= text_field_tag "user[email]", @user.email, rows: 3 %>
+  </div><br/>
+
+  <div class="field">
+    <%= label_tag :password %>
+    <%= password_field_tag 'user[password]', nil, class: 'form-control', required: true  %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :password_confirmation %>
+    <%= password_field_tag 'user[confirmpassword]', nil, class: 'form-control', required: true %>
+  </div>
+
+    <%= button_tag "Create user" %>
+<% end %>

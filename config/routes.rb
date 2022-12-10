@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root 'categories#index'
 
   devise_for :users
+  # creating user views
+  # resources :users, only: [:index, :show, :new, :edit, :update, :delete]
+  resources :users
   resources :messages
   resources :locations
   resources :categories

@@ -19,6 +19,9 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
+  validates :avatar, presence: true
+  validates :username, presence: true
+
 
   mount_uploader :avatar, AvatarUploader
 
