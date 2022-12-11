@@ -58,6 +58,12 @@
     <%= form.collection_select :category_id, Category.order(:title), :id, :title, include_blank: true %>
   </div>
 
+  <div class="field">
+    <%= form.label :sold %>
+    <%#= form.number_field :sold %>
+    <%= form.check_box :sold, {}, true, false %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

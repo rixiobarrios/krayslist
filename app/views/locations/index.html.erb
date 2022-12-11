@@ -1,27 +1,53 @@
 <!--<p id="notice"><%#= notice %></p>-->
 
-<h1>Locations</h1>
+<!--<h1>Locations</h1>-->
 
-<table>
-  <thead>
-    <tr>
-      <th>City</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<div class="text-center">
+  <h1>Locations</h1>
+</div>
 
-  <tbody>
-    <% @locations.each do |location| %>
-      <tr>
-        <td><%= location.city %></td>
-        <td><%= link_to 'Show', location %></td>
-        <td><%= link_to 'Edit', edit_location_path(location) %></td>
-        <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!--<div class="text-center">
+  <%#= image_tag('logo.png', :size => "800x180") %>
+  <strong class="display-3 text-center">
+    <h4 class="mb-80">A place for the community to come together, buy and sell items, offer services and much more</h4>
+  </strong>
+</div>-->
+
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <table class="table table-responsive">
+      <thead>
+        <tr>
+          <th>Choose a city</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @locations.each do |location| %>
+          <tr>
+            <!--<td><%#= location.city %>-->
+            <td>
+              <button type="button" class="btn-default btn-lg"><%= location.city %></button>
+            </td>
+
+            <% if user_signed_in? && current_user.username == "admin" %>
+            <td><%= link_to 'Show', location %></td>
+            <td><%= link_to 'Edit', edit_location_path(location) %></td>
+            <td><%= link_to 'Destroy', location, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+            
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <br>
 
-<%= link_to 'New Location', new_location_path %>
+<div class="text-center">
+<% if user_signed_in? && current_user.username == "admin" %>
+<%= link_to 'New location', new_location_path %>
+<% end %>
+</div>

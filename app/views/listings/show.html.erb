@@ -1,36 +1,57 @@
 <!--<p id="notice"><%#= notice %></p>-->
 
-<p>
+<!--<p>
   <strong>Seller:</strong>
-  <%= @listing.seller_id %>
-</p>
+  <%#= @listing.seller.username %>
+</p>-->
 
 <!--<p>
   <strong>Buyer:</strong>
   <%#= @listing.buyer_id %>
 </p>-->
 
-<p>
+<!--<p>
   <strong>Title:</strong>
-  <%= @listing.title %>
-</p>
+  <%#= @listing.title %>
+</p>-->
 
-<p>
+<!--<p>
   <strong>Image:</strong>
   <%#= @listing.image %>
   <%#= image_tag @listing.image %>
-  <%= image_tag @listing.image.url %>
-</p>
+  <%#= image_tag @listing.image.url %>
+  <%#= image_tag @listing.image.url, class: "rounded-3", width: "580px", alt: "image" %>
+</p>-->
 
-<p>
+<!--<p>
   <strong>Details:</strong>
-  <%= @listing.details %>
-</p>
+  <%#= @listing.details %>
+</p>-->
 
-<p>
+<!--<p>
   <strong>Category:</strong>
-  <%= @listing.category_id %>
-</p>
+  <%#= @listing.category.title %>
+</p>-->
 
-<%= link_to 'Edit', edit_listing_path(@listing) %> |
-<%= link_to 'Back', listings_path %>
+<%#= link_to 'Edit', edit_listing_path(@listing) %>
+<%#= link_to 'Back', listings_path %>
+
+<div class="card" style="width: 18rem;">
+  <!--<img class="card-img-top" src="..." alt="Card image cap">-->
+    <%#= image_tag @listing.image.url, class: "rounded-3", width: "580px", alt: "image" %>
+    <%= image_tag @listing.image.url, class: "card-img-top", alt: "image" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= @listing.title %></h5>
+    <!--<p class="card-text">Details: <%#= @listing.details %></p>-->
+  </div>
+  <ul class="list-group list-group-flush">
+  <li class="list-group-item">Details: <%= @listing.details %></li>
+    <li class="list-group-item">Category: <%= @listing.category.title %></li>
+    <li class="list-group-item">Seller: <%= @listing.seller.username %></li>
+    <li class="list-group-item">Sold?: <%= humanize_boolean(@listing.sold?) %></li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Edit', edit_listing_path(@listing), class: "card-link" %>
+    <%= link_to 'Back', listings_path, class: "card-link" %></a>
+  </div>
+</div>

@@ -10,4 +10,5 @@
 class Location < ApplicationRecord
   
   has_many(:categories, :class_name => "Category", :foreign_key => "location_id", :dependent => :destroy)
+  # has_many(:listings, through: "category_id", source: "Category" )
 end

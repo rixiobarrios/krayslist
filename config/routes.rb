@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'categories#index'
+  root 'locations#index'
 
   devise_for :users
   # creating user views

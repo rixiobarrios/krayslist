@@ -4,7 +4,8 @@
 
 # Welcome to my final project: Krayslist by Rixio Barrios
 
-![dpi](https://user-images.githubusercontent.com/55994508/206869103-d10c2b8c-29af-4e35-aee7-f5391b5d07db.png)![uis](https://user-images.githubusercontent.com/55994508/206870942-07dbdc5f-0a94-47f8-bff4-3e0e9d7491de.png)
+![dpi](https://user-images.githubusercontent.com/55994508/206869103-d10c2b8c-29af-4e35-aee7-f5391b5d07db.png)
+![uis](https://user-images.githubusercontent.com/55994508/206870942-07dbdc5f-0a94-47f8-bff4-3e0e9d7491de.png)
 
 This project is an final assignment for the Software Engineering Apprenticeship provided by the Discovery Partners Institute and the University of Illinois System.
 
@@ -22,9 +23,16 @@ In order to post an add you would first need to create a new user account.
 
 ## Wireframes
 
+* Home (Location)
 ![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
+
+* Categories
 ![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
+
+* Listings
 ![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
+
+* Details
 ![show](https://user-images.githubusercontent.com/55994508/206535581-c15a86a5-e4d1-4013-b8a2-8a815db3a589.png)
 
 ## How to run this application
@@ -78,19 +86,17 @@ bundle e rails s
 
 **Note: This process may need additional steps depending on your system**
 
-## Generate scaffold resources:
+# The building of this app:
 
-* Listings
-```
-rails generate scaffold listing seller_id:integer buyer_id:integer title:string details:text image:string category_id:integer sold:boolean
-```
+## Generate scaffold resources
 
-* Direct Associations:
+* Locations
 ```
-has_many(:messages, :class_name => "Message", :foreign_key => "listing_id", :dependent => :destroy)
-belongs_to(:seller, :required => true, :class_name => "User", :foreign_key => "seller_id")
-belongs_to(:buyer, :required => false, :class_name => "User", :foreign_key => "buyer_id")
-belongs_to(:category, :required => true, :class_name => "Category", :foreign_key => "category_id")
+rails generate scaffold location city:string
+```
+- Direct Associations: 
+```
+has_many(:categories, :class_name => "Category", :foreign_key => "location_id", :dependent => :destroy)
 ```
 
 * Categories
@@ -103,13 +109,18 @@ has_many(:listings, :class_name => "Listing", :foreign_key => "category_id", :de
 belongs_to(:location, :required => true, :class_name => "Location", :foreign_key => "location_id")
 ```
 
-* Locations
+* Listings
 ```
-rails generate scaffold location city:string
+rails generate scaffold listing seller_id:integer buyer_id:integer title:string details:text image:string category_id:integer sold:boolean
 ```
-- Direct Associations: 
+**Note: set ```sold:boolean``` to ```default: false, null: false``` on the migration file before running ```rails db:migrate```**
+
+* Direct Associations:
 ```
-has_many(:categories, :class_name => "Category", :foreign_key => "location_id", :dependent => :destroy)
+has_many(:messages, :class_name => "Message", :foreign_key => "listing_id", :dependent => :destroy)
+belongs_to(:seller, :required => true, :class_name => "User", :foreign_key => "seller_id")
+belongs_to(:buyer, :required => false, :class_name => "User", :foreign_key => "buyer_id")
+belongs_to(:category, :required => true, :class_name => "Category", :foreign_key => "category_id")
 ```
 
 * Messages
@@ -122,7 +133,7 @@ belongs_to(:listing, :required => true, :class_name => "Listing", :foreign_key =
 belongs_to(:sender, :required => true, :class_name => "User", :foreign_key => "sender_id")
 belongs_to(:recipient, :required => true, :class_name => "User", :foreign_key => "recipient_id")
 ```
-- Make any chamges to migrate files before running db:migrate
+- Make any changes to migrate files before running db:migrate
 ```
 rails db:migrate
 ```
@@ -177,10 +188,19 @@ rails g annotate:install
 ```
 - Run ```rails annotate_models```
 
-* Make landing page all categories under routes
+
+* Make landing page all locations under routes
 ```
-root 'categories#index'
+root 'locations#index'
 ```
+
+* Added validations to User model
+```
+class User < ApplicationRecord
+  validates :avatar, presence: true
+  validates :username, presence: true
+end  
+```  
 
 * Added conditional navigation to application.html.erb
 ```
@@ -394,4 +414,38 @@ end
 <%= link_to 'Back', users_path %>
 ```
 
+* Add new partial file for notice and alert in ```views/shared/_flash.html.erb```
+```
+<div class="alert alert-<%= css_class %> alert-dismissible fade show" role="alert">
+  <%= message %>
+
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+```
+
+* Add application helper for listing at ```app/assets/helpers/listing_helper.rb```
+```
+module ListingsHelper
+  def humanize_boolean(value)
+    case value
+    when true
+      "Yes"
+    when false
+      "No"
+    when nil
+      "Undefined"
+    else
+      "Invalid"
+    end
+  end
+end
+```
+
 * Add dynamic routes
+
+# Special Thanks
+
+**Discovery Partners Institute Team:**
+Jelani Woods, Robert Sfarzo, Raghu Betina, Mathew Kline, Jennifer Foil, Gary Nixon and Morgan Diamond 
