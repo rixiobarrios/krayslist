@@ -36,7 +36,11 @@
 <%#= link_to 'Edit', edit_listing_path(@listing) %>
 <%#= link_to 'Back', listings_path %>
 
-<div class="card" style="width: 18rem;">
+<div class="text-center">
+  <h1>Listing</h1>
+</div>
+
+<div class="card mx-auto" style="width: 30rem;">
   <!--<img class="card-img-top" src="..." alt="Card image cap">-->
     <%#= image_tag @listing.image.url, class: "rounded-3", width: "580px", alt: "image" %>
     <%= image_tag @listing.image.url, class: "card-img-top", alt: "image" %>
@@ -45,12 +49,14 @@
     <!--<p class="card-text">Details: <%#= @listing.details %></p>-->
   </div>
   <ul class="list-group list-group-flush">
-  <li class="list-group-item">Details: <%= @listing.details %></li>
+    <li class="list-group-item">Details: <%= @listing.details %></li>
+    <!--<li class="list-group-item">Location: <%#= @listing.location.city %></li>-->
     <li class="list-group-item">Category: <%= @listing.category.title %></li>
     <li class="list-group-item">Seller: <%= @listing.seller.username %></li>
     <li class="list-group-item">Sold?: <%= humanize_boolean(@listing.sold?) %></li>
   </ul>
   <div class="card-body">
+    <%= link_to 'Reply', new_message_path(@listing), class: "card-link" %>
     <%= link_to 'Edit', edit_listing_path(@listing), class: "card-link" %>
     <%= link_to 'Back', listings_path, class: "card-link" %></a>
   </div>

@@ -1,17 +1,21 @@
 class UsersController < ApplicationController
   
+  def index
+    @users = User.all.order('username ASC')
+  end
+  
+  def show
+    @user = User.find_by!(id: params.fetch(:id))
+  end
+  
   def new
     @user = User.new
   end
 
-  def index
-    @users = User.all.order('username ASC')
+  def edit
+    #@user = User.find_by!(id: params.fetch(:id))
   end
-
-  def show
-    @user = User.find_by!(id: params.fetch(:id))
-  end
-
+  
   def create
     user_attributes = params.require(:username).permit(:email, :avatar)
   
@@ -24,10 +28,6 @@ class UsersController < ApplicationController
     else
       render "new"
     end
-  end
-
-  def edit
-    @user = User.find_by!(id: params.fetch(:id))
   end
 
   def update

@@ -8,7 +8,7 @@
 
 <div class="row justify-content-center">
   <div class="col-auto">
-    <table class="table table-responsive">
+    <table class="table table-responsive table-bordered">
       <thead>
         <tr>
           <!--<th>Seller</th>-->
@@ -17,9 +17,10 @@
           <th>Title</th>
           <!--<th>Details</th>-->
           <th>Category</th>
-          <th>Location</th>
+          <!--<th>Location</th>-->
           <th>Sold?</th>
           <th>Created</th>
+          <th>Updated</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -36,12 +37,15 @@
             <!--<td><%#= listing.category_id %></td>-->
             <td><%= listing.category.title %></td>
             <td><%#= listing. %></td>
-            <td><%=  humanize_boolean(listing.sold?) %></td>
+            <td><%= humanize_boolean(listing.sold?) %></td>
             <!--<td><%#= listing.created_at %></td>-->
             <td><%= time_ago_in_words(listing.created_at) %> ago</td>
+            <td><%= time_ago_in_words(listing.updated_at) %> ago</td>
+            <% if user_signed_in? && current_user.username == "admin" %>
             <td><%= link_to 'Show', listing %></td>
             <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
             <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
@@ -49,8 +53,8 @@
   </div>  
 </div>  
 
-<br>
+<!--<br>-->
 
-<div class="text-center">
-  <%= link_to 'New Listing', new_listing_path %>
-</div>
+<!--<div class="text-center">
+  <%#= link_to 'New Listing', new_listing_path %>
+</div>-->

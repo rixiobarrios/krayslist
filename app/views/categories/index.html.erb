@@ -17,7 +17,7 @@
 
   <div class="row justify-content-center">
   <div class="col-auto">
-  <table class="table table-responsive">
+  <table class="table table-responsive table-borderless">
   <thead>
     <tr>
       <th>Choose a category</th>
@@ -31,11 +31,14 @@
         <!--<td><%#= category.title %></td>-->
         <!--<td><%#= category.location_id %></td>-->
         <td>
-          <button type="button" class="btn-default btn-lg"><%= category.title %></button>
+          <button type="button" class="btn-default btn-lg"><%= link_to category.title.to_s, category %></button>
+          <!--<button type="button" class="btn-default btn-lg"><%#= category.title %></button>-->
         </td>
+        <% if user_signed_in? && current_user.username == "admin" %>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -44,5 +47,7 @@
 <br>
 
 <div class="text-center">
+  <% if user_signed_in? && current_user.username == "admin" %>
   <%= link_to 'New category', new_category_path %>
+  <% end %>
 </div>

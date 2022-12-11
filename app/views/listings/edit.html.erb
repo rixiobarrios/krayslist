@@ -1,3 +1,5 @@
+<div class="text-center">
+
 <h1>Editing Listing</h1>
 
 <%#= render 'form', listing: @listing %>
@@ -21,7 +23,7 @@
   <% end %>
 
 <div class="image">
-  <%= image_tag @listing.image.url %>
+  <%= image_tag @listing.image.url, size: "260x260" %>
 </div>
 
   <div class="field">
@@ -51,6 +53,11 @@
     <%= form.text_area :details %>
   </div>
 
+  <div class="field">
+    <%= form.label :location %>
+    <%#= form.number_field :category_id %>
+    <%= form.collection_select :location, Location.order(:city), :id, :city, include_blank: true %>
+  </div>
 
   <div class="field">
     <%= form.label :category_id %>
@@ -71,3 +78,5 @@
 
 <%= link_to 'Show', @listing %> |
 <%= link_to 'Back', listings_path %>
+
+</div>

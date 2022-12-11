@@ -47,6 +47,11 @@
     <%= form.text_area :details %>
   </div>
 
+  <div class="field">
+    <%= form.label :location_id %>
+    <%#= form.number_field :category_id %>
+    <%= form.collection_select :location_id, Location.order(:city), :id, :city, include_blank: true %>
+  </div>
 
   <div class="field">
     <%= form.label :category_id %>

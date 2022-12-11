@@ -15,7 +15,7 @@
 
 <div class="row justify-content-center">
   <div class="col-auto">
-    <table class="table table-responsive">
+    <table class="table table-responsive table-borderless">
       <thead>
         <tr>
           <th>Choose a city</th>
@@ -28,7 +28,7 @@
           <tr>
             <!--<td><%#= location.city %>-->
             <td>
-              <button type="button" class="btn-default btn-lg"><%= location.city %></button>
+              <button type="button" class="btn-default btn-lg"><%= link_to location.city.to_s, location %></button>
             </td>
 
             <% if user_signed_in? && current_user.username == "admin" %>
