@@ -11,7 +11,7 @@
     <table class="table table-responsive table-bordered">
       <thead>
         <tr>
-          <!--<th>Seller</th>-->
+          <th>Seller</th>
           <!--<th>Buyer</th>-->
           <th>Image</th>
           <th>Title</th>
@@ -28,7 +28,7 @@
       <tbody>
         <% @listings.each do |listing| %>
           <tr>
-            <!--<td><%#= listing.seller_id %></td>-->
+            <td><%= link_to listing.seller.username.to_s %></td>
             <!--<td><%#= listing.buyer_id %></td>-->
             <!--<td><%#= listing.image %></td>-->
             <td><%= image_tag listing.image.url, class: "rounded-3 shadow p-0 mb-1 bg-white rounded", width: "75px", alt: "thumbnail" %></td>
@@ -37,7 +37,7 @@
             <!--<td><%#= listing.details %></td>-->
             <!--<td><%#= listing.category_id %></td>-->
             <td><%= listing.category.title %></td>
-            <td>Chicago</td>
+            <td><%= listing.location.city %></td>
             <td><%= humanize_boolean(listing.sold?) %></td>
             <!--<td><%#= listing.created_at %></td>-->
             <td><%= time_ago_in_words(listing.created_at) %> ago</td>

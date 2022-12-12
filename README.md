@@ -449,6 +449,8 @@ end
 
 * Add dynamic routes
 
+* Add search option
+
 # Special Thanks
 
 **Discovery Partners Institute Team:**
