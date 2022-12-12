@@ -1,17 +1,6 @@
-<!--<p id="notice"><%#= notice %></p>-->
-
-<!--<h1>Locations</h1>-->
-
 <div class="text-center">
   <h1>Locations</h1>
 </div>
-
-<!--<div class="text-center">
-  <%#= image_tag('logo.png', :size => "800x180") %>
-  <strong class="display-3 text-center">
-    <h4 class="mb-80">A place for the community to come together, buy and sell items, offer services and much more</h4>
-  </strong>
-</div>-->
 
 <div class="row justify-content-center">
   <div class="col-auto">
@@ -47,7 +36,7 @@
 <br>
 
 <div class="text-center">
-<% if user_signed_in? && current_user.username == "admin" %>
-<%= link_to 'New location', new_location_path %>
+  <% if user_signed_in? && current_user.username == "admin" %>
+  <%= link_to 'New location', new_location_path %>
 <% end %>
 </div>

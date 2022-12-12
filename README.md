@@ -122,6 +122,10 @@ belongs_to(:seller, :required => true, :class_name => "User", :foreign_key => "s
 belongs_to(:buyer, :required => false, :class_name => "User", :foreign_key => "buyer_id")
 belongs_to(:category, :required => true, :class_name => "Category", :foreign_key => "category_id")
 ```
+- Indirect Association:
+```
+has_one  :location, through: :category, source: :location
+```
 
 * Messages
 ```

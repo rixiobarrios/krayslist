@@ -1,21 +1,8 @@
-<!--<p id="notice"><%#= notice %></p>-->
-
-<!--<h1>Categories</h1>-->
-
 <div class="text-center">
   <h1>Categories</h1>
 </div>
 
-<!--<table>
-  <thead>
-    <tr>
-      <th>Title</th>-->
-      <!--<th>Location</th>-->
-      <!--<th colspan="3"></th>
-    </tr>
-  </thead>-->
-
-  <div class="row justify-content-center">
+<div class="row justify-content-center">
   <div class="col-auto">
   <table class="table table-responsive table-borderless">
   <thead>
@@ -34,15 +21,19 @@
           <button type="button" class="btn-default btn-lg"><%= link_to category.title.to_s, category %></button>
           <!--<button type="button" class="btn-default btn-lg"><%#= category.title %></button>-->
         </td>
+
         <% if user_signed_in? && current_user.username == "admin" %>
         <td><%= link_to 'Show', category %></td>
         <td><%= link_to 'Edit', edit_category_path(category) %></td>
         <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
+</div>
 
 <br>
 

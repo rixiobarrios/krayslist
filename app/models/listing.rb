@@ -21,5 +21,6 @@ class Listing < ApplicationRecord
   belongs_to(:seller, :required => true, :class_name => "User", :foreign_key => "seller_id")
   belongs_to(:buyer, :required => false, :class_name => "User", :foreign_key => "buyer_id")
   belongs_to(:category, :required => true, :class_name => "Category", :foreign_key => "category_id")
-  # belongs_to(:location, through: "Category", source: "location_id")
+
+  has_one(:location, :through => :category, :source => :location)
 end

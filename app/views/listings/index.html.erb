@@ -17,11 +17,11 @@
           <th>Title</th>
           <!--<th>Details</th>-->
           <th>Category</th>
-          <!--<th>Location</th>-->
+          <th>Location</th>
           <th>Sold?</th>
           <th>Created</th>
           <th>Updated</th>
-          <th colspan="3"></th>
+          <!--<th colspan="3"></th>-->
         </tr>
       </thead>
 
@@ -32,20 +32,23 @@
             <!--<td><%#= listing.buyer_id %></td>-->
             <!--<td><%#= listing.image %></td>-->
             <td><%= image_tag listing.image.url, class: "rounded-3 shadow p-0 mb-1 bg-white rounded", width: "75px", alt: "thumbnail" %></td>
-            <td><%= listing.title %></td>
+            <!--<td><%= listing.title %></td>-->
+            <td><%= link_to listing.title.to_s, listing %></td>
             <!--<td><%#= listing.details %></td>-->
             <!--<td><%#= listing.category_id %></td>-->
             <td><%= listing.category.title %></td>
-            <td><%#= listing. %></td>
+            <td>Chicago</td>
             <td><%= humanize_boolean(listing.sold?) %></td>
             <!--<td><%#= listing.created_at %></td>-->
             <td><%= time_ago_in_words(listing.created_at) %> ago</td>
             <td><%= time_ago_in_words(listing.updated_at) %> ago</td>
+
             <% if user_signed_in? && current_user.username == "admin" %>
             <td><%= link_to 'Show', listing %></td>
             <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
             <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
+
           </tr>
         <% end %>
       </tbody>
