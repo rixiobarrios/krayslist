@@ -28,12 +28,16 @@
       <tbody>
         <% @listings.each do |listing| %>
           <tr>
-            <td><%= link_to listing.seller.username.to_s %></td>
+            <!--<td><%#= link_to listing.seller.username.to_s %></td>-->
+            <td><%= link_to listing.seller.username, @user %></td>
             <!--<td><%#= listing.buyer_id %></td>-->
             <!--<td><%#= listing.image %></td>-->
+            <!--<td><%#= image_tag(listing.image.url) if listing.image.url, class: "rounded-3 shadow p-0 mb-1 bg-white rounded", width: "75px", alt: "thumbnail" %></td>-->
+            <%# if listing.image.url %>
             <td><%= image_tag listing.image.url, class: "rounded-3 shadow p-0 mb-1 bg-white rounded", width: "75px", alt: "thumbnail" %></td>
-            <!--<td><%= listing.title %></td>-->
-            <td><%= link_to listing.title.to_s, listing %></td>
+            <%# end %>
+            <!--<td><%#= listing.title %></td>-->
+            <td><%= link_to listing.title, listing %></td>
             <!--<td><%#= listing.details %></td>-->
             <!--<td><%#= listing.category_id %></td>-->
             <td><%= listing.category.title %></td>
@@ -56,8 +60,8 @@
   </div>  
 </div>  
 
-<!--<br>-->
+<br>
 
-<!--<div class="text-center">
-  <%#= link_to 'New Listing', new_listing_path %>
-</div>-->
+<div class="text-center">
+  <%= link_to 'New Listing', new_listing_path %>
+</div>

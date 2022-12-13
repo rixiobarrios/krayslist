@@ -50,7 +50,8 @@
   <div class="field">
     <%= form.label :location_id %>
     <%#= form.number_field :category_id %>
-    <%= form.collection_select :location_id, Location.order(:city), :id, :city, include_blank: true %>
+    <%#= form.collection_select :location_id, Location.order(:city), :id, :city, include_blank: true %>
+    <%= form.hidden_field :location_id, value: cookies[:location] %>
   </div>
 
   <div class="field">

@@ -23,7 +23,8 @@
           <tr>
             <!--<td><%#= user.avatar %></td>-->
             <td><%= image_tag user.avatar.url, class: "rounded-circle shadow p-0 mb-2 bg-white rounded", width: "75px", alt: "avatar" %></td>
-            <td><%= user.username %></td>
+            <!--<td><%#= user.username %></td>-->
+            <td><%= link_to user.username, user %></td>
             <td><%= user.email %></td>
             <td><%= time_ago_in_words(user.created_at) %> ago</td>
             <td><%= time_ago_in_words(user.updated_at) %> ago</td>

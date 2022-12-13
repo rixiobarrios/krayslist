@@ -328,6 +328,12 @@ format.html { redirect_to locations_path, notice: "Location was successfully cre
 format.html { redirect_to locations_path, notice: "Location was successfully updated." }
 format.html { redirect_to locations_path, notice: "Location was successfully destroyed." }    
 ```
+* create, update, destroy redirect_to("/messages")
+```
+format.html { redirect_to messages_path, notice: "Message was successfully created." }
+format.html { redirect_to messages_path, notice: "Message was successfully updated." }
+format.html { redirect_to messages_path, notice: "Message was successfully destroyed." }    
+```
 
 ## Add user views for admin
 

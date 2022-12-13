@@ -4,7 +4,11 @@
 
 <div class="row justify-content-center">
   <div class="col-auto">
+  <% if user_signed_in? && current_user.username == "admin" %>
+    <table class="table table-responsive table-bordered">
+    <% else %>
     <table class="table table-responsive table-borderless">
+    <% end %>
       <thead>
         <tr>
           <th>Choose a city</th>
