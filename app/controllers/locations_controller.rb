@@ -9,8 +9,7 @@ class LocationsController < ApplicationController
   # GET /locations/1 or /locations/1.json
   def show
     # @locations = Location.all
-    # person1[:first_name] = "Raghu"
-    cookies[:location] = params.fetch("id")
+    # cookies[:location] = params.fetch("id")
   end
 
   # GET /locations/new

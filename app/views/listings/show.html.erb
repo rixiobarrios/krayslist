@@ -45,19 +45,22 @@
     <%#= image_tag @listing.image.url, class: "rounded-3", width: "580px", alt: "image" %>
     <%= image_tag @listing.image.url, class: "card-img-top", alt: "image" %>
   <div class="card-body">
-    <h5 class="card-title"><%= @listing.title %></h5>
+    <h5 class="card-title"><%= @listing.title.capitalize %></h5>
     <!--<p class="card-text">Details: <%#= @listing.details %></p>-->
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Details: <%= @listing.details %></li>
     <!--<li class="list-group-item">Location: <%#= @listing.location.city %></li>-->
-    <li class="list-group-item">Category: <%= @listing.category.title %></li>
-    <li class="list-group-item">Seller: <%= @listing.seller.username %></li>
-    <li class="list-group-item">Sold?: <%= humanize_boolean(@listing.sold?) %></li>
+    <li class="list-group-item">Category: <%= @listing.category.title.capitalize %></li>
+    <li class="list-group-item">Seller: <%= @listing.seller.username.capitalize %></li>
+    <li class="list-group-item">Sold?: <%= humanize_boolean(@listing.sold) %></li>
   </ul>
   <div class="card-body">
+    <% if user_signed_in? && current_user.username == @listing.seller.username %>
     <%= link_to 'Reply', new_message_path(@listing), class: "card-link" %>
     <%= link_to 'Edit', edit_listing_path(@listing), class: "card-link" %>
-    <%= link_to 'Back', listings_path, class: "card-link" %></a>
+    <% end %>
+    <%#= link_to 'Back', listings_path, class: "card-link" %></a>
+    <%= link_to 'Back', :back %>
   </div>
 </div>

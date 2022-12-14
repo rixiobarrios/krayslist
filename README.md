@@ -4,7 +4,7 @@
 
 # Welcome to my final project: Krayslist by Rixio Barrios
 
-![dpi](https://user-images.githubusercontent.com/55994508/206869103-d10c2b8c-29af-4e35-aee7-f5391b5d07db.png)
+![dpi](https://user-images.githubusercontent.com/55994508/206869103-d10c2b8c-29af-4e35-aee7-f5391b5d07db.png)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![uis](https://user-images.githubusercontent.com/55994508/206870942-07dbdc5f-0a94-47f8-bff4-3e0e9d7491de.png)
 
 This project is an final assignment for the Software Engineering Apprenticeship provided by the Discovery Partners Institute and the University of Illinois System.
@@ -83,8 +83,13 @@ bundle e rails db:setup
 ```
 bundle e rails s
 ```
-
 **Note: This process may need additional steps depending on your system**
+
+## Previews
+
+* PC Screens
+
+* Mobile Screens
 
 # The building of this app:
 
@@ -203,6 +208,14 @@ root 'locations#index'
 class User < ApplicationRecord
   validates :avatar, presence: true
   validates :username, presence: true
+end  
+```  
+
+* Added validations to Listing model
+```
+class User < ApplicationRecord
+  validates :image, presence: true
+  validates :title, presence: true
 end  
 ```  
 
