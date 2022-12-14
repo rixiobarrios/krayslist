@@ -37,6 +37,9 @@
       <tbody>
         <% @category.listings.each do |listing| %>
           <tr>
+
+            <% if listing.sold == false %>
+
             <!--<td><%#= listing.seller_id %></td>-->
             <!--<td><%#= listing.buyer_id %></td>-->
             <!--<td><%#= listing.image %></td>-->
@@ -53,13 +56,39 @@
             <td><%= time_ago_in_words(listing.updated_at) %> ago</td>
 
             <% if user_signed_in? && current_user.username == "admin" %>
+
             <td><%= link_to 'Show', listing %></td>
             <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
             <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            <% end %>
+
+            <% else %>
+
+            <!--<td><%#= link_to listing.seller.username.capitalize, @user %></td>-->
+            <!--<td class="table-secondary"><cite title="Source Title"><%#= listing.seller.username.capitalize %></cite></td>-->
+            <td class="table-secondary"><%= image_tag listing.image.url, class: "rounded-3 shadow p-0 mb-1 bg-white rounded", width: "75px", alt: "thumbnail" %></td>
+            <!--<td><%#= link_to listing.title.capitalize, listing %></td>-->
+            <td class="table-secondary"><cite title="Source Title"><%= listing.title.capitalize %></cite></td>
+            <td class="table-secondary"><cite title="Source Title"><%= listing.category.title.capitalize %></cite></td>
+            <td class="table-secondary"><cite title="Source Title"><%= listing.location.city.capitalize %></cite></td>
+            <td class="table-secondary"><cite title="Source Title"><%= humanize_boolean(listing.sold?) %></cite></td>
+            <td class="table-secondary"><cite title="Source Title"><%= time_ago_in_words(listing.created_at) %> ago</cite></td>
+            <td class="table-secondary"><cite title="Source Title"><%= time_ago_in_words(listing.updated_at) %> ago</cite></td>
+
+            <% if user_signed_in? && current_user.username == "admin" %>
+
+            <td class="table-secondary"><%= link_to 'Show', listing %></td>
+            <td class="table-secondary"><%= link_to 'Edit', edit_listing_path(listing) %></td>
+            <td class="table-secondary"><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            
+            <% end %>
+
             <% end %>
 
           </tr>
         <% end %>
+
       </tbody>
     </table>
   </div>  

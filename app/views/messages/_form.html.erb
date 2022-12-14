@@ -12,21 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :listing_id %>
+    <%#= form.label :listing_id %>
     <%#= form.number_field :listing_id %>
-    <%= form.collection_select :listing_id, Listing.order(:title), :id, :title, include_blank: true %>
+    <%#= form.collection_select :listing_id, Listing.order(:title), :id, :title, include_blank: true %>
+    <%#= form.text_field :listing_id, value: params.fetch("query_listing_id") %>
+    <%= form.hidden_field :listing_id, value: params.fetch("query_listing_id") %>
   </div>
 
   <div class="field">
-    <%= form.label :sender_id %>
+    <%#= form.label :sender_id %>
     <%#= form.number_field :sender_id %>
-    <%= form.collection_select :sender_id, User.order(:username), :id, :username, include_blank: true %>
+    <%#= form.collection_select :sender_id, User.order(:username), :id, :username, include_blank: true %>
+    <%= form.hidden_field :sender_id, value: current_user.id %>
   </div>
 
   <div class="field">
-    <%= form.label :recipient_id %>
+    <%#= form.label :recipient_id %>
     <%#= form.number_field :recipient_id %>
-    <%= form.collection_select :recipient_id, User.order(:username), :id, :username, include_blank: true %>
+    <%#= form.collection_select :recipient_id, User.order(:username), :id, :username, include_blank: true %>
+    <%#= form.text_field :recipient_id, value: params.fetch("query_recipient_id") %>
+    <%= form.hidden_field :recipient_id, value: params.fetch("query_recipient_id") %>
   </div>
 
   <div class="field">
