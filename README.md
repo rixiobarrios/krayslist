@@ -21,20 +21,6 @@ In order to post an add you would first need to create a new user account.
 
 **Note: You are able to upload images for your listing!**
 
-## Wireframes
-
-* Home (Location)
-![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
-
-* Categories
-![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
-
-* Listings
-![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
-
-* Details
-![show](https://user-images.githubusercontent.com/55994508/206535581-c15a86a5-e4d1-4013-b8a2-8a815db3a589.png)
-
 ## How to run this application
 
 * Clone this repo
@@ -85,13 +71,31 @@ bundle e rails s
 ```
 **Note: This process may need additional steps depending on your system**
 
+## Data Model
+
+![Screen Shot 2022-12-14 at 6 14 36 PM](https://user-images.githubusercontent.com/55994508/207743286-1d8abee8-6bb6-4a11-b8a0-536bae13f2df.png)
+
+## Wireframes
+
+* Home (Location)
+![home](https://user-images.githubusercontent.com/55994508/206535532-0b0721b1-c771-405a-b32f-295cbb2d1966.png)
+
+* Categories
+![categories](https://user-images.githubusercontent.com/55994508/206535554-9add02e7-4136-4a68-9296-d2ef23b21557.png)
+
+* Listings
+![index](https://user-images.githubusercontent.com/55994508/206535514-f5608a60-63ba-4ee4-9779-7e8d50530371.png)
+
+* Details
+![show](https://user-images.githubusercontent.com/55994508/206535581-c15a86a5-e4d1-4013-b8a2-8a815db3a589.png)
+
 ## Previews
 
-* PC Screens
+* Mobile and PC Screens
 
-* Mobile Screens
+<img width="539" alt="Screen Shot 2022-12-14 at 6 31 33 PM" src="https://user-images.githubusercontent.com/55994508/207744715-1c57c1df-377b-4052-af4b-37f01f982718.png">
 
-# The building of this app:
+# The building of the app
 
 ## Generate scaffold resources
 
@@ -469,6 +473,8 @@ end
 * Add dynamic routes
 
 * Add search option
+
+* Add pagination
 
 # Special Thanks
 

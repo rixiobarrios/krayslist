@@ -40,20 +40,23 @@
               <%# end %>
             <% end %>
             </td>
+
             <td>
             <% user.message_sender.each do |sent| %>
               <ul style="margin-top:0; list-style-type:none;">
-                <li><%#= link_to sent.body.capitalize, sent %></li>
+                <li><%= link_to sent.body.capitalize, sent %></li>
               </ul>
             <% end %>
             </td>
+
             <td>
             <% user.message_recipient.each do |received| %>
               <ul style="margin-top:0; list-style-type:none;">
-                <li><%#= link_to received.body.capitalize, received %></li>
+                <li><%= link_to received.body.capitalize, received %></li>
               </ul>
             <% end %>
             </td>
+
             <td><%= time_ago_in_words(user.created_at) %> ago</td>
             <td><%= time_ago_in_words(user.updated_at) %> ago</td>
             <%# if user_signed_in? && current_user.username == "admin" %>

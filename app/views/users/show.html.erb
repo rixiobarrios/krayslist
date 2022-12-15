@@ -38,17 +38,34 @@
 <div class="card mx-auto" style="width: 30rem;">
     <%= image_tag @user.avatar.url, class: "card-img-top", alt: "image" %>
   <div class="card-body">
-    <h5 class="card-title"><%= @user.username.capitalize %></h5>
+    <h2 class="card-title"><%= @user.username.capitalize %></h2>
   </div>
+
   <ul class="list-group list-group-flush">
     <li class="list-group-item">Email: <%= @user.email %></li>
-    <%# @user.listing_seller.each do |listing| %>
-    <li class="list-group-item">Listings: <%= link_to @user.listing_seller, @user %></li>
-    <%# end %>
-    <li class="list-group-item">Messages: <%= link_to @user.message_sender, @user %></li>
+
+    <li class="list-group-item">Listings:
+      <% @user.listing_seller.each do |listing| %>
+        <%= link_to listing.title, listing %>
+      <% end %>
+    </li>
+
+    <li class="list-group-item">Sent Messages: 
+      <% @user.message_sender.each do |sent| %>
+        <%= link_to sent.body.truncate(15), sent %>
+      <% end %>  
+    </li>
+
+    <li class="list-group-item">Received Messages: 
+      <% @user.message_recipient.each do |received| %>
+        <%= link_to received.body.truncate(15), received %>
+      <% end %>  
+    </li>
+
     <li class="list-group-item">Created: <%= time_ago_in_words(@user.created_at) %></li>
     <li class="list-group-item">Updated: <%= time_ago_in_words(@user.updated_at) %></li>
   </ul>
+
   <div class="card-body">
     <% if user_signed_in? && current_user.username == @user.username %>
     <%= link_to 'Edit', edit_user_registration_path(@user), class: "card-link" %>
