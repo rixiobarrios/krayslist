@@ -119,7 +119,7 @@ bundle e rails s
 ![5_Message](https://user-images.githubusercontent.com/55994508/219002683-7520a025-b400-4b03-97fb-8c145fa68dcb.png)
 
 
-* User edit and signed out options
+* User edit and sign out options
 ![6_Profile](https://user-images.githubusercontent.com/55994508/219002684-50ce4643-f1f8-4688-a145-c3df5d3579ec.png)
 
 
