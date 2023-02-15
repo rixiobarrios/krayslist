@@ -95,44 +95,70 @@ bundle e rails s
 
 ## Previews
 
-* Begining with choosing location
+* Begin by choosing location
+*
 ![1_Location](https://user-images.githubusercontent.com/55994508/219000780-9940d5cb-0928-47be-9556-d6c396387244.png)
 
+
 * Choose category
+*
 ![2_Categories](https://user-images.githubusercontent.com/55994508/219001002-d4220996-3f85-4ece-991b-a6d0033b48ed.png)
 
-* View market and see what items are available and no longer available
+
+* View market, see items available and not available
+* 
 ![3_Market](https://user-images.githubusercontent.com/55994508/219001368-751b3daf-04b5-4427-9d85-c0d4c1e9b410.png)
 
+
 * Choose listing
+* 
 ![4_Listing](https://user-images.githubusercontent.com/55994508/219002676-7fdf3c1d-b6b9-47fe-9b43-cb500d91e90f.png)
 
+
 * Send message to posting user
+* 
 ![5_Message](https://user-images.githubusercontent.com/55994508/219002683-7520a025-b400-4b03-97fb-8c145fa68dcb.png)
 
+
 * User edit and signed out options
+* 
 ![6_Profile](https://user-images.githubusercontent.com/55994508/219002684-50ce4643-f1f8-4688-a145-c3df5d3579ec.png)
 
+
 * User details
+* 
 ![7_User](https://user-images.githubusercontent.com/55994508/219002687-c6c33745-3b96-469c-8fa3-0e39ac860006.png)
 
+
 * User dashboard
+* 
 ![8_add](https://user-images.githubusercontent.com/55994508/219002692-1c7bde42-752a-4286-aed2-e8399fa69772.png)
 
+
 * Add new listing
+* 
 ![9_New](https://user-images.githubusercontent.com/55994508/219002695-86d5cbd2-4a55-460a-92ef-222145308f23.png)
 
+
 * Admin option to add location
+* 
 ![10_Locations](https://user-images.githubusercontent.com/55994508/219002697-d7f9bd6d-6395-4a4a-9b41-571c7c7d0717.png)
 
+
 * Admin option to add categories
+* 
 ![11_Categories](https://user-images.githubusercontent.com/55994508/219002699-789ea11a-b784-40af-b36f-50fd265385bb.png)
 
+
 * Admin option to moderate user activity
+* 
 ![12_Users](https://user-images.githubusercontent.com/55994508/219002701-dc32e51e-7b4f-4879-85fc-659a7d52141c.png)
 
+
 * Admin option to moderate listings
+* 
 ![13_Listings](https://user-images.githubusercontent.com/55994508/219002705-a3b86454-9d34-4c1b-ba2f-b8c344db0f3f.png)
+
 
 # The building of the app
 
